@@ -1,0 +1,33 @@
+{
+  "id": "app",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "giltayar/dcos-test-app:1.3.0",
+      "network": "HOST"
+    }
+  },
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "portIndex": 0,
+      "path": "/",
+      "gracePeriodSeconds": 5,
+      "intervalSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ],
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 64,
+  "labels": {
+    "HAPROXY_DEPLOYMENT_GROUP": "app",
+    "HAPROXY_DEPLOYMENT_ALT_PORT": "10005",
+    "HAPROXY_GROUP": "external",
+    "HAPROXY_0_REDIRECT_TO_HTTPS": "false",
+    "HAPROXY_0_VHOST": "public-slave.zooz,54.154.81.22"
+  }
+}
