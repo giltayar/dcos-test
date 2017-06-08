@@ -1,0 +1,18 @@
+{
+     "id": "hello-world-job",
+     "description": "A job that echos hello world",
+     "run": {
+         "cmd": "echo hello world",
+         "cpus": 0.01,
+         "mem": 32,
+         "disk": 0
+     },
+     "schedules": [
+         {
+             "id": "every-minute",
+             "enabled": true,
+             "cron": "* * * * *",
+             "concurrencyPolicy": "ALLOW"
+         }
+     ]
+ }
