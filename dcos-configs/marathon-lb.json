@@ -1,0 +1,7 @@
+{
+  "marathon-lb": {
+    "bind-http-https": false,
+    "cpus": 0.5,
+    "mem": 512
+  }
+}

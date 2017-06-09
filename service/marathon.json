@@ -1,0 +1,27 @@
+{
+  "id": "service",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "giltayar/dcos-test-service:1.2.0",
+      "network": "HOST"
+    }
+  },
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "portIndex": 0,
+      "path": "/",
+      "gracePeriodSeconds": 5,
+      "intervalSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ],
+  "instances": 2,
+  "cpus": 0.1,
+  "mem": 64,
+  "labels": {
+    "HAPROXY_DEPLOYMENT_GROUP": "service",
+    "HAPROXY_GROUP": "internal"
+  }
+}

@@ -3,9 +3,12 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "giltayar/dcos-test-app:1.3.0",
+      "image": "giltayar/dcos-test-app:1.8.0",
       "network": "HOST"
     }
+  },
+  "env": {
+    "SERVICE_PROXY_PREFIX": "http://marathon-lb-internal.marathon.mesos:9091"
   },
   "healthChecks": [
     {
@@ -20,7 +23,7 @@
   "acceptedResourceRoles": [
     "slave_public"
   ],
-  "instances": 1,
+  "instances": 2,
   "cpus": 0.1,
   "mem": 64,
   "labels": {

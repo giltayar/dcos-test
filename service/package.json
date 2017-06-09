@@ -1,0 +1,20 @@
+{
+  "name": "service",
+  "version": "1.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker build -t giltayar/dcos-test-service:${npm_package_version} .",
+    "start": "node server.js",
+    "docker:push": "docker push giltayar/dcos-test-service:${npm_package_version}",
+    "deploy:initial": "dcos marathon app add marathon.json",
+    "deploy": "dcos marathon app update --force /service <marathon.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "node-fetch": "^1.7.1"
+  }
+}
