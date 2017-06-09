@@ -11,7 +11,6 @@ app.use((req, res, next) => {
 
 app.get('/life-the-universe', async (req, res) => {
   const serviceProxy = process.env.SERVICE_PROXY_PREFIX || "http://localhost:3001"
-  console.log('fetching from', `${serviceProxy}/the-answer`, process.env)
 
   const response = await fetch(`${serviceProxy}/the-answer`, {
     headers: { "X-Marathon-App-Id": "/service"}
